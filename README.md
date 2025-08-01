@@ -10,3 +10,5 @@
 ``` bash
 docker-compose up
 ```
+
+![ERD](images/erd.png)

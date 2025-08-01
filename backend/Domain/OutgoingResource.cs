@@ -7,6 +7,4 @@ public class OutgoingResource : EntityBase
     public Measure Measure { get; set; } = null!;
 
     public int Amount { get; set; }
-
-    public IEnumerable<Resource> Resources { get; set; } = [];
 }
