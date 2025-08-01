@@ -1,0 +1,19 @@
+services:
+  backend:
+
+
+  frontend:
+
+
+  postgres:
+
+
+  nginx:
+
+
+
+
+volumes:
+  
+
+networks:
