@@ -1,4 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+using Util;
 
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers();
+
+var app = builder.Build();
+app.MapControllers();
+
+// app.ApplyMigrations<>();
 app.Run();

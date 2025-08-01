@@ -1,0 +1,81 @@
+@startuml ERD_Diagram
+
+entity "Ресурс" as resource {
+  * идентификатор
+  --
+  наименование
+  состояние
+}
+
+entity "Единица измерения" as unit {
+  * идентификатор
+  --
+  наименование
+  состояние
+}
+
+entity "Клиент" as client {
+  * идентификатор
+  --
+  наименование
+  адрес
+  состояние
+}
+
+entity "Баланс" as balance {
+  * идентификатор
+  --
+  идентификатор ресурса
+  идентификатор единицы измерения
+  количество
+}
+
+entity "Документ поступления" as income_doc {
+  * идентификатор
+  --
+  номер
+  дата
+}
+
+entity "Ресурс поступления" as income_resource {
+  * идентификатор
+  --
+  идентификатор ресурса
+  идентификатор единицы измерения
+  количество
+}
+
+entity "Документ отгрузки" as shipment_doc {
+  * идентификатор
+  --
+  номер
+  идентификатор клиента
+  дата
+  состояние
+}
+
+entity "Ресурс отгрузки" as shipment_resource {
+  * идентификатор
+  --
+  идентификатор ресурса
+  идентификатор единицы измерения
+  количество
+}
+
+' Связи
+resource ||--o{ balance
+unit ||--o{ balance
+
+resource ||--o{ income_resource
+unit ||--o{ income_resource
+
+income_doc ||--o{ income_resource
+
+client ||--o{ shipment_doc
+
+resource ||--o{ shipment_resource
+unit ||--o{ shipment_resource
+
+shipment_doc ||--o{ shipment_resource
+
+@enduml
